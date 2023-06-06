@@ -1,0 +1,81 @@
+PlayWright:
+
+Prerequisites
+Node JS
+node -v   npm -v
+IDE  ( VS Code )
+
+Install using command as npm package
+
+Step 1 - Create a new folder and open in VS Code
+Step 2 - Goto Terminal and run command - npm init playwright@latest
+Step 3 - Following will be added
+  - package.json - node project management file
+  - playwright.config.js - Configuration file
+  - tests folder -  basic example test
+  - tests-examples folder - detailed example tests
+  - .gitignore - to be used during git commit and push
+  - playwright.yml - to be used during ci cd pipeline (github workflows)
+Step 4 - Check playwright added - npm playwright -v
+Step 5 - Check playwright command options - npx playwright -h
+
+to run -> npx playwright test
+PS C:\PlayWright_Automation> npx playwright test --workers 3
+To execute specific test :
+PS C:\PlayWright_Automation> npx playwright test example.spec.js
+
+https://www.youtube.com/watch?v=LTwg0kqdK4I&list=PLhW3qG5bs-L9sJKoT1LC5grGT77sfW0Z8&index=3
+
+01:41  npx playwright test        runs all tests on all browsers in headless mode
+04:20  npx playwright test --workers 3    runs with 3 workers in parallel
+05:14  npx playwright test  one.spec.js     runs a specific test file
+05:54  npx playwright test  one.spec.js  two.spec.js   runs the files specified
+06:04. npx playwright test  one  two      runs files that have one or two in the file name
+06:40. npx playwright test -g "check title"   runs test with the title
+08:04  npx playwright test --project=chromium  runs on specific browser
+08:56  npx playwright test --headed    runs tests in headed mode
+09:51  npx playwright test --debug    debug tests
+PS C:\PlayWright_Automation> npx playwright test --project=chromium --debug
+11:40  npx playwright test example.spec.js --debug debug specific test file
+12:04  npx playwright test example.spec.js:21 --debug debug starting from specific line where test(..  starts
+14:08  All commands screenshot
+
+
+
+CODE GENERATE:
+PS C:\PlayWright_Automation> npx playwright codegen
+
+
+00:46  Step 1 - Create a new file under test folder
+02:15  Step 2 - Add module ‘playwright/test’
+
+const { test, expect } = require('@playwright/test');
+
+05:35  Example how to add and import modules
+
+12:48  Playwright Test provides a test function to declare tests and expect function to write assertions
+13:10  Step 3 - Create a test block - test(title, testFunction)
+
+test('My First Test',  async ({page}) =＞ {
+    await page.goto('https://google.com');
+    await expect(page).toHaveTitle('Google');
+})
+17:20
+The keyword async before a function makes the function return a promise
+The keyword await before a function makes the function wait for a promise
+
+24:14  Screenshot moment
+
+Using VS Code extension
+
+Step 1 - Create a new folder and open in VS Code
+Step 2 - Goto Extensions section and install Playwright extension from Microsoft
+Step 3 - Goto View - Command Palette and type playwright - select install playwright
+Step 4 - Select the browsers and click ok
+Step 5 - It will install the libraries and create the project folders
+
+
+
+https://www.youtube.com/watch?v=LTwg0kqdK4I&list=PLhW3qG5bs-L9sJKoT1LC5grGT77sfW0Z8&index=3
+
+https://github.com/nedimmerv/playWright_Automation
